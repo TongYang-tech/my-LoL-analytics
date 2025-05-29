@@ -1,15 +1,20 @@
-import * as React from 'react'
 import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
-import Home from './components/layout/Home'
+import Layout from './components/layout/Layout'
+import TradingCardGame from './components/tcg/TradingCardGame'
+import Pokemon from './components/pokemon/Pokemon'
 
 const Router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
-  }
+    element: <Layout />,
+    children: [
+      { path: 'trading-card-game', element: <TradingCardGame /> },
+      { path: 'pokemon', element: <Pokemon /> }
+    ]
+  },
 ], {
   basename: import.meta.env.BASE_URL
 })
